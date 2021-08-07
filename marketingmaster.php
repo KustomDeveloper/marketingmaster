@@ -11,22 +11,29 @@
 
 /*
 *  Activate plugin
-*  -set default options
+*    create admin menu
+*    create more stuff
 */
-register_activation_hook(__FILE__, 'markmast_install');
-function markmast_install() {
 
-  // Add tables
-
+register_activation_hook(__FILE__, 'markmast_activate');
+function markmast_activate() {
+  add_option('markmast_activated', 'true');
 }
 
+add_action('admin_init', 'markmast_load_plugin');
+function markmast_load_plugin() {
+  if( get_option('markmast_activated') == 'true' ) {
+    add_menu_page('Marketing Master', 'Marketing Master Settings', 'manage_options', 'markmast_options');
+  } else {
+    remove_menu_page('markmast_options');
+  }
+}
 
 /*
 *  Deactivate plugin
-*  -do somethign
+*    set activated status option to false
 */
 register_deactivation_hook(__FILE__, 'markmast_deactivate');
 function markmast_deactivate() {
-  // Deactivate something here
-
+  update_option('mm_activated', 'false');
 }
