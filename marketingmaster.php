@@ -33,6 +33,9 @@ if( get_option('markmast_activated') == 'true' ) {
 
     add_menu_page( $page_title, $menu_title, $capability, $menu_slug, $function, $icon_url, $position );
 
+    wp_register_style( 'markmast_admin_styles', plugins_url('css/markmast_admin_styles.css', __FILE__) );
+    wp_enqueue_style('markmast_admin_styles');
+
     function markmast_options_settings() {
       include( plugin_dir_path( __FILE__ ) . 'includes/markmast_options_settings.php');
     }
