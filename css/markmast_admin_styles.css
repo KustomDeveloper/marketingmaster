@@ -2,6 +2,30 @@
 .switchbox {
   margin-bottom: 20px;
 }
+#markmast-main-options .switchbox h3 {
+  padding-top: 20px;
+  display:block;
+}
+.input-block {
+  width: 100%;
+  display:block;
+  margin: 3px 0;
+  padding: .375rem .75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  border: 1px solid #ced4da;
+  border-radius: .25rem;
+  max-width: 300px;
+}
+.local-business label  {
+  margin: 15px 0;
+  display: block;
+}
+.openhours-example {
+  
+}
 .switch {
   position: relative;
   display: inline-block;
