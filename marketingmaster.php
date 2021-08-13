@@ -36,6 +36,9 @@ if( get_option('markmast_activated') == 'true' ) {
     wp_register_style( 'markmast_admin_styles', plugins_url('css/markmast_admin_styles.css', __FILE__) );
     wp_enqueue_style('markmast_admin_styles');
 
+    wp_register_script( 'markmast_scripts', plugins_url('js/markmast_scripts.js', __FILE__) , '', '', true );
+    wp_enqueue_script( 'markmast_scripts' );
+
     function markmast_options_settings() {
       include( plugin_dir_path( __FILE__ ) . 'includes/markmast_options_settings.php');
     }

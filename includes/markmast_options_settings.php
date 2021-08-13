@@ -5,11 +5,11 @@
   <div class="switchbox checkbox-1">
   <h3>Local Business Schema</h3>
     <label class="switch">
-      <input type="checkbox" name="box1">
+      <input id="lb-switch" type="checkbox" name="box1">
       <span class="slider round"></span>
     </label>
 
-    <div class="local-business">
+    <div class="local-business hide-elements">
       <label for="Business Name" class="b-label">Business Name*
         <input class="input-block" type="text" name="local-business-name" required>
       </label>

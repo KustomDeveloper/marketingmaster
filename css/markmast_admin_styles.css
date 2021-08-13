@@ -1,4 +1,8 @@
 /* The switch - the box around the slider */
+
+.hide-elements {
+  display:none;
+}
 .switchbox {
   margin-bottom: 20px;
 }
