@@ -22,9 +22,11 @@
 .local-business label  {
   margin: 15px 0;
   display: block;
+  cursor:default;
 }
 .openhours-example {
-  
+  font-size: 13px;
+  color:#777;
 }
 .switch {
   position: relative;

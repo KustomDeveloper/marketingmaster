@@ -31,10 +31,10 @@
       </label>
 
       <label for="Business Hours" class="b-label">Business Hours <span class="openhours-example">(default: Su,Mo,Tu,We,Th,Fr,Sa 00:00-24:00)</span>
-        <input class="input-block" type="text" name="local-business-hours" required>
+        <input class="input-block" type="text" name="local-business-hours" value="Su,Mo,Tu,We,Th,Fr,Sa 00:00-24:00" required>
       </label>
 
-      <h3>Address</h3>
+      <h3>Business Address</h3>
       <label for="Business " class="b-label">Business Street
         <input class="input-block" type="text" name="local-business-street-address" required>
       </label>
