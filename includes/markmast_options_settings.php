@@ -3,13 +3,16 @@
   <h1>Marketing Master Settings</h1>
 
   <div class="switchbox checkbox-1">
-  <h3>Local Business Schema</h3>
+    <h3>Local Business Schema</h3>
     <label class="switch">
       <input id="lb-switch" type="checkbox" name="box1">
       <span class="slider round"></span>
+      <input type="hidden" name="hidden-box-1">
     </label>
+  </div>
 
-    <div class="local-business hide-elements">
+  <div class="local-business hide-elements">
+    <form action="">
       <label for="Business Name" class="b-label">Business Name*
         <input class="input-block" type="text" name="local-business-name" required>
       </label>
@@ -50,15 +53,24 @@
       <label for="Business Zip" class="b-label">Business Zip
         <input class="input-block" type="text" name="local-business-zip" required>
       </label>  
-    </div>
-
+    </form>
   </div>
 
+
   <div class="switchbox checkbox-2">
+  <h3>Product Review</h3>
     <label class="switch">
-      <input type="checkbox" name="box2">
+      <input id="pr-switch" type="checkbox" name="box2">
       <span class="slider round"></span>
     </label>
+  </div>
+
+  <div class="product-review hide-elements">
+    <form action="">
+      <label for="Product Name" class="b-label">Product Name
+        <input class="input-block" type="text" name="" required>
+      </label>
+    </form>
   </div>
 
   <div class="switchbox checkbox-3">
@@ -67,6 +79,8 @@
       <span class="slider round"></span>
     </label>
   </div>
+
+  
 
 </div>
 

@@ -6,6 +6,14 @@ jQuery(function () {
     } else {
       jQuery('.local-business').fadeOut();
     }
+  });    
+
+  jQuery('#pr-switch').on('click', function() {
+    if(document.getElementById('pr-switch').checked) {
+      jQuery('.product-review').fadeIn();
+    } else {
+      jQuery('.product-review').fadeOut();
+    }
   });               
 });
 
