@@ -96,3 +96,6 @@ input:checked + .slider:before {
   cursor: pointer;
   font-size: 18px;
 }
+form .checked {
+  display: block !important;
+}

@@ -1,5 +1,8 @@
 
 jQuery(function () {
+  if(jQuery('#lb-switch').hasClass('checked')) {
+    jQuery('.local-business').fadeIn();
+  }
   jQuery('#lb-switch').on('click', function() {
     if(document.getElementById('lb-switch').checked) {
       jQuery('.local-business').fadeIn();
