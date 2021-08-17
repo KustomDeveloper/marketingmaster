@@ -12,7 +12,7 @@
   </div>
 
   <div class="local-business hide-elements">
-    <form action="">
+    <form action="process.php" method='POST'>
       <label for="Business Name" class="b-label">Business Name*
         <input class="input-block" type="text" name="local-business-name" required>
       </label>
@@ -53,6 +53,8 @@
       <label for="Business Zip" class="b-label">Business Zip
         <input class="input-block" type="text" name="local-business-zip" required>
       </label>  
+
+      <input id="submit-btn" type="submit" name="submit_btn" value="Save Local Schema">
     </form>
   </div>
 
