@@ -10,9 +10,25 @@
 */
 
 /*
+*  Load wp ajax functions
+*/
+function toggle_local_schema_action() {
+  update_option("local_schema_settings", "1");
+  wp_die();
+}
+add_action( 'wp_ajax_post_toggle_local_schema_action', 'toggle_local_schema_action' );
+
+function toggle_local_schema_action_on() {
+  update_option("local_schema_settings", "0");
+  wp_die();
+}
+add_action( 'wp_ajax_post_toggle_local_schema_action_on', 'toggle_local_schema_action_on' );
+
+
+/*
 *  Activate plugin
 *    create admin menu
-*    create more stuff
+*    create options page
 */
 register_activation_hook( __FILE__, 'markmast_activate' );
 function markmast_activate() {
@@ -40,6 +56,7 @@ if( get_option('markmast_activated') == 'true' ) {
     wp_enqueue_script( 'markmast_scripts' );
 
     function markmast_options_settings() {
+      //Add settings page options
       include( plugin_dir_path( __FILE__ ) . 'includes/markmast_options_settings.php');
     }
   }

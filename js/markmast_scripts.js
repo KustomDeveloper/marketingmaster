@@ -1,22 +1,39 @@
 
 jQuery(function () {
+
+  function getValue() {
+    if (document.getElementById('lb-switch').checked) {
+      document.getElementById('lb-switch').setAttribute("value", "0");
+    } else {
+      document.getElementById('lb-switch').setAttribute("value", "1");
+    }
+  }
+  
   if(jQuery('#lb-switch').hasClass('checked')) {
     jQuery('.local-business').fadeIn();
   }
+
   jQuery('#lb-switch').on('click', function() {
+    getValue();
+
     if(document.getElementById('lb-switch').checked) {
+      const data = {
+        "action" : "post_toggle_local_schema_action_on",
+        "toggle_value" : "0"
+      } 
+      jQuery.post(ajaxurl, data, function(e) {});
       jQuery('.local-business').fadeIn();
     } else {
+
+      const data = {
+        "action" : "post_toggle_local_schema_action",
+        "toggle_value" : "1"
+      }
+      jQuery.post(ajaxurl, data, function(e) {});
       jQuery('.local-business').fadeOut();
     }
   });    
 
-  jQuery('#pr-switch').on('click', function() {
-    if(document.getElementById('pr-switch').checked) {
-      jQuery('.product-review').fadeIn();
-    } else {
-      jQuery('.product-review').fadeOut();
-    }
-  });               
+              
 });
 
