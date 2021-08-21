@@ -12,12 +12,13 @@
 /*
 *  Load wp ajax functions
 */
+//Turns local schema functionality to the "off" state
 function toggle_local_schema_action() {
   update_option("local_schema_settings", "1");
   wp_die();
 }
 add_action( 'wp_ajax_post_toggle_local_schema_action', 'toggle_local_schema_action' );
-
+//Turns local schema functionality to the "on" state
 function toggle_local_schema_action_on() {
   update_option("local_schema_settings", "0");
   wp_die();
@@ -37,6 +38,7 @@ function markmast_activate() {
 
 if( get_option('markmast_activated') == 'true' ) {
 
+  //Add main plugin menu
   add_action('admin_menu', 'markmast_addmenu');
   function markmast_addmenu() {
     $page_title = 'Marketing Master';
@@ -55,11 +57,16 @@ if( get_option('markmast_activated') == 'true' ) {
     wp_register_script( 'markmast_scripts', plugins_url('js/markmast_scripts.js', __FILE__) , '', '', true );
     wp_enqueue_script( 'markmast_scripts' );
 
+    //Add settings page
     function markmast_options_settings() {
       //Add settings page options
       include( plugin_dir_path( __FILE__ ) . 'includes/markmast_options_settings.php');
     }
   }
+
+  //Add local schema to frontend
+  include( plugin_dir_path( __FILE__ ) . 'includes/local_schema_json.php');
+
 
 } else {
   remove_menu_page( 'markmast_options' );

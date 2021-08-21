@@ -10,7 +10,7 @@ jQuery(function () {
   }
   
   if(jQuery('#lb-switch').hasClass('checked')) {
-    jQuery('.local-business').fadeIn();
+    jQuery('.local-business').show();
   }
 
   jQuery('#lb-switch').on('click', function() {
@@ -22,7 +22,7 @@ jQuery(function () {
         "toggle_value" : "0"
       } 
       jQuery.post(ajaxurl, data, function(e) {});
-      jQuery('.local-business').fadeIn();
+      jQuery('.local-business').show();
     } else {
 
       const data = {
@@ -30,7 +30,7 @@ jQuery(function () {
         "toggle_value" : "1"
       }
       jQuery.post(ajaxurl, data, function(e) {});
-      jQuery('.local-business').fadeOut();
+      jQuery('.local-business').hide();
     }
   });    
 
