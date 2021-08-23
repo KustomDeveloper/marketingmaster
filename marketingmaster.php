@@ -12,18 +12,23 @@
 /*
 *  Load wp ajax functions
 */
-//Turns local schema functionality to the "off" state
+//Turns local schema to the "off" state
 function toggle_local_schema_action() {
   update_option("local_schema_settings", "1");
   wp_die();
 }
 add_action( 'wp_ajax_post_toggle_local_schema_action', 'toggle_local_schema_action' );
-//Turns local schema functionality to the "on" state
+//Turns local schema to the "on" state
 function toggle_local_schema_action_on() {
   update_option("local_schema_settings", "0");
   wp_die();
 }
 add_action( 'wp_ajax_post_toggle_local_schema_action_on', 'toggle_local_schema_action_on' );
+
+//Add local schema to frontend
+if(get_option('local_schema_settings') == "0") {
+include( plugin_dir_path( __FILE__ ) . 'includes/local_schema_json.php');
+}
 
 
 /*
@@ -63,9 +68,6 @@ if( get_option('markmast_activated') == 'true' ) {
       include( plugin_dir_path( __FILE__ ) . 'includes/markmast_options_settings.php');
     }
   }
-
-  //Add local schema to frontend
-  include( plugin_dir_path( __FILE__ ) . 'includes/local_schema_json.php');
 
 
 } else {
