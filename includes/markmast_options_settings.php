@@ -29,6 +29,10 @@
           <input class="input-block" type="text" name="local-business-phone" value="<?php echo $local_schema_phone; ?>" required>
         </label>
 
+        <label for="Business Email"  class="b-label">Business Email*
+          <input class="input-block" type="text" name="local-business-email" value="<?php echo $local_schema_email; ?>" required>
+        </label>
+
         <label for="Business Logo" class="b-label">Business Logo*
           <input class="input-block" type="text" name="local-business-logo" value="<?php echo $local_schema_logo; ?>" required>
         </label>
@@ -39,6 +43,7 @@
 
         <label for="Business Hours" class="b-label">Business Hours* <span class="openhours-example">(default: Su,Mo,Tu,We,Th,Fr,Sa 00:00-24:00)</span>
           <input class="input-block" type="text" name="local-business-hours" value="<?php if($local_schema_hours) { echo $local_schema_hours; } else { echo "Su,Mo,Tu,We,Th,Fr,Sa 00:00-24:00"; } ?>" required>
+          <small>How do I format my business hours correctly? <a href="#">Documentation</a></small>
         </label>
 
         <h3>Business Address</h3>
@@ -57,6 +62,37 @@
         <label for="Business Zip" class="b-label">Business Zip*
           <input class="input-block" type="text" name="local-business-zip" value="<?php echo $local_schema_zip; ?>" required>
         </label>  
+
+        <label for="Business Map" class="b-label">Map URL*
+          <input class="input-block" type="text" name="local-business-map" value="<?php echo $local_schema_map; ?>" required>
+          <small>Where do I get the map url? <a href="#">Documentation</a></small>
+        </label>  
+
+        <label for="Business Latitude" class="b-label">Map Latitude*
+          <input class="input-block" type="text" name="local-business-latitude" value="<?php echo $local_schema_latitude; ?>" required>
+          <small>Where do I get the Latitude? <a href="#">Documentation</a></small>
+        </label> 
+
+        <label for="Business Longitude" class="b-label">Map Longitude*
+          <input class="input-block" type="text" name="local-business-longitude" value="<?php echo $local_schema_longitude; ?>" required>
+          <small>Where do I get the Longitude? <a href="#">Documentation</a></small>
+        </label>  
+      
+
+        <h3>Social Media</h3>
+        <label for="Business Facebook" class="b-label">Facebook
+          <input class="input-block" type="text" name="local-business-facebook" value="<?php echo $local_schema_facebook; ?>">
+        </label>  
+        <label for="Business Twitter" class="b-label">Twitter
+          <input class="input-block" type="text" name="local-business-twitter" value="<?php echo $local_schema_twitter; ?>">
+        </label>  
+        <label for="Business YouTube" class="b-label">YouTube
+          <input class="input-block" type="text" name="local-business-youtube" value="<?php echo $local_schema_youtube; ?>">
+        </label>  
+        <label for="Business Pinterest" class="b-label">Pinterest
+          <input class="input-block" type="text" name="local-business-pinterest" value="<?php echo $local_schema_pinterest; ?>">
+        </label>  
+
 
         <input id="submit-btn" type="submit" name="submit_btn" value="Save Local Schema">
       </div>
