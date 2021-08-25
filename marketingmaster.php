@@ -2,7 +2,7 @@
 /* 
 *  Plugin Name: Marketing Master
 *  Plugin URI: https://kustomdeveloper.com/marketing-master
-*  Description: A Local SEO plugin that actually works. Features: Business schema, google maps, video schema, customer reviews and customer reviews schema.
+*  Description: A local SEO plugin that actually works. Features: Local Business Schema, Google Maps, Customer Reviews and Product Review Schema.
 *  Version: 1.0
 *  Author: Kustom Developer
 *  Author URI: https://kustomdeveloper.com
@@ -10,7 +10,9 @@
 */
 
 /*
-*  Load wp ajax functions
+*
+*  Load Wp Ajax Functions: Toggle switch controllers
+*  
 */
 //Turns local schema to the "off" state
 function toggle_local_schema_action() {
@@ -25,9 +27,32 @@ function toggle_local_schema_action_on() {
 }
 add_action( 'wp_ajax_post_toggle_local_schema_action_on', 'toggle_local_schema_action_on' );
 
+
+//Turns product review schema to the "off" state
+function toggle_product_review_schema_action() {
+  update_option("product_review_schema_settings", "1");
+  wp_die();
+}
+add_action( 'wp_ajax_post_toggle_product_review_action', 'toggle_product_review_schema_action' );
+//Turns product review schema to the "on" state
+function toggle_product_review_schema_action_on() {
+  update_option("product_review_schema_settings", "0");
+  wp_die();
+}
+add_action( 'wp_ajax_post_toggle_product_review_action_on', 'toggle_product_review_schema_action_on' );
+
+/*
+*
+*  Load Views
+*  
+*/
 //Add local schema to frontend
 if(get_option('local_schema_settings') == "0") {
-include( plugin_dir_path( __FILE__ ) . 'includes/local_schema_json.php');
+  include( plugin_dir_path( __FILE__ ) . 'includes/local_schema_json.php');
+}
+//Add product review to frontend
+if(get_option('product_review_schema_settings') == "0") {
+  include( plugin_dir_path( __FILE__ ) . 'includes/product_review_schema.php');
 }
 
 

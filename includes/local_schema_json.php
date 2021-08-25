@@ -30,7 +30,7 @@ function local_schema_json() {
     "openingHours" => "$local_schema_hours",  
     "url" => "$local_schema_url",
     "logo"=> "$local_schema_logo",
-    "hasMap"=> "<iframe src=\"$local_schema_map\" width=\"400\" height=\"300\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\"></iframe>",
+    "hasMap"=> "$local_schema_map",
     "email" => "$local_schema_email",
     "priceRange"=> "$$$ - $$$$$",
     "image" => "$local_schema_img",

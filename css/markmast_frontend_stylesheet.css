@@ -1,0 +1,24 @@
+
+/*Product Review*/
+.customer-review {
+  text-align: left;
+  width: 100%;
+  max-width: 500px;
+  background: #131212;
+  padding: 15px;
+  border-radius: 5px;
+  margin: 40px 0 20px 0;
+  color: #D6D2B0;
+}
+span.review-title {
+  margin-right: 50px;
+}
+span.cr-stars {
+  float: right;
+}
+span.cr-stars .fa-star, span.cr-stars .fa-star-half {
+    font-size: 14px !important;
+}
+.customer-review .fa-star {
+  color: #E2A311;
+}

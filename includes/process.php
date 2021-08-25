@@ -32,7 +32,7 @@ if(isset($_POST['submit_btn'])) {
   }
 
   //Update options
-  foreach ($options_array as $value) {
+  foreach($options_array as $value) {
     updateOptions($value);
   }
 
@@ -42,4 +42,27 @@ if(isset($_POST['submit_btn'])) {
 /*
 *  Process Product Form
 */ 
+$local_schema_product_name = get_option('local-schema-product-name'); 
+$local_schema_product_description = get_option('local-schema-product-description'); 
+
+if(isset( $_POST['product_review_submit_btn'] )) {
+  $options_array = array( 'local-schema-product-name', 'local-schema-product-description' );
+
+  function updateOptions($name) {
+    if(isset($_POST[$name])) {
+      $value = $_POST[$name];
+      update_option($name, $value);
+    }
+  }
+
+  //Update options
+  foreach($options_array as $value) {
+    updateOptions($value);
+  }
+
+  echo "<script>window.location.reload();</script>";
+}
+
+
+
 ?>

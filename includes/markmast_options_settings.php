@@ -103,16 +103,20 @@
   <div class="switchbox checkbox-2">
   <h3>Product Review</h3>
     <label class="switch">
-      <input id="pr-switch" type="checkbox" name="box2">
+      <input id="pr-switch" type="checkbox" name="box2" <?php if(get_option('product_review_schema_settings') == '0') { echo "class='checked'" . "checked" . " value='0'"; } ?>>
       <span class="slider round"></span>
     </label>
   </div>
 
   <div class="product-review hide-elements">
-    <form action="">
-      <label for="Product Name" class="b-label">Product Name
-        <input class="input-block" type="text" name="" required>
-      </label>
+  <form method='POST'>
+        <label for="Product Review Name" class="b-label">Product Review Name
+          <input class="input-block" type="text" name="local-schema-product-name" value="<?php echo $local_schema_product_name; ?>">
+        </label>  
+        <label for="Product Review Description" class="b-label">Product Review Description
+          <input class="input-block" type="text" name="local-schema-product-description" value="<?php echo $local_schema_product_description; ?>">
+        </label>  
+        <input id="product_review_submit_btn" type="submit" name="product_review_submit_btn" value="Save Product Review">
     </form>
   </div>
 
