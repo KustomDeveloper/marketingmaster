@@ -114,7 +114,7 @@
           <input class="input-block" type="text" name="local-schema-product-name" value="<?php echo $local_schema_product_name; ?>">
         </label>  
         <label for="Product Review Description" class="b-label">Product Review Description
-          <input class="input-block" type="text" name="local-schema-product-description" value="<?php echo $local_schema_product_description; ?>">
+          <textarea class="input-block" name="local-schema-product-description" rows="5" ><?php echo $local_schema_product_description; ?></textarea>
         </label>  
         <input id="product_review_submit_btn" type="submit" name="product_review_submit_btn" value="Save Product Review">
     </form>

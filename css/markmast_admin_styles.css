@@ -99,3 +99,14 @@ input:checked + .slider:before {
 form .checked {
   display: block !important;
 }
+
+#product_review_submit_btn {
+  background: #2196F3;
+  border: none;
+  width: 200px;
+  height: 40px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 18px;
+  margin-top: 15px;
+}
