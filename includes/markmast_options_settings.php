@@ -121,12 +121,50 @@
   </div>
 
   <div class="switchbox checkbox-3">
+  <h3>Customer Review</h3>
     <label class="switch">
-      <input type="checkbox" name="box3">
+      <input id="cr-switch" type="checkbox" name="box3" <?php if(get_option('customer_review_schema_settings') == '0') { echo "class='checked'" . "checked" . " value='0'"; } ?>>
       <span class="slider round"></span>
     </label>
   </div>
 </div>
+
+
+<div class="customer-review hide-elements">
+  <form method='POST'>
+        <input type="radio" id="oneS" name="reviewStars" value="1">
+        <label for="onestar">1</label><br>
+        <input type="radio" id="twoS" name="reviewStars" value="2">
+        <label for="twostar">2</label><br>
+        <input type="radio" id="threeS" name="reviewStars" value="3">
+        <label for="threestar">3</label><br>
+        <input type="radio" id="fourS" name="reviewStars" value="4">
+        <label for="fourstar">4</label><br>
+        <input type="radio" id="fiveS" name="reviewStars" value="5">
+        <label for="fivestar">5</label><br>
+        
+        <label for="Customer Review Name" class="b-label">Customer Review Name*
+          <input class="input-block" type="text" name="local-schema-customer-review-name" value="<?php echo $local_schema_product_name; ?>">
+        </label>  
+        <label for="Product Review Description" class="b-label">Customer Review Description*
+          <textarea class="input-block" name="local-schema-customer-review-description" rows="5" ><?php echo $local_schema_product_description; ?></textarea>
+        </label>  
+        <input id="product_review_submit_btn" type="submit" name="customer_review_submit_btn" value="Save Review Settings">
+    </form>
+  </div>
+
+
+
+
+<!-- add page programmatically
+$wordpress_page = array(
+  'post_title'    => 'Page title',
+  'post_content'  => 'Page Content',
+  'post_status'   => 'publish',
+  'post_author'   => 1,
+  'post_type' => 'page'
+   );
+ wp_insert_post( $wordpress_page ); -->
 
 
 

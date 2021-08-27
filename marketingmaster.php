@@ -41,6 +41,20 @@ function toggle_product_review_schema_action_on() {
 }
 add_action( 'wp_ajax_post_toggle_product_review_action_on', 'toggle_product_review_schema_action_on' );
 
+
+//Turns Customer review schema to the "off" state
+function toggle_customer_review_schema_action() {
+  update_option("customer_review_schema_settings", "1");
+  wp_die();
+}
+add_action( 'wp_ajax_post_toggle_customer_review_action', 'toggle_customer_review_schema_action' );
+//Turns customer review schema to the "on" state
+function toggle_customer_review_schema_action_on() {
+  update_option("customer_review_schema_settings", "0");
+  wp_die();
+}
+add_action( 'wp_ajax_post_toggle_customer_review_action_on', 'toggle_customer_review_schema_action_on' );
+
 /*
 *
 *  Load Views
@@ -50,9 +64,15 @@ add_action( 'wp_ajax_post_toggle_product_review_action_on', 'toggle_product_revi
 if(get_option('local_schema_settings') == "0") {
   include( plugin_dir_path( __FILE__ ) . 'includes/local_schema_json.php');
 }
+
 //Add product review to frontend
 if(get_option('product_review_schema_settings') == "0") {
   include( plugin_dir_path( __FILE__ ) . 'includes/product_review_schema.php');
+}
+
+//Add Customer review to frontend
+if(get_option('customer_review_schema_settings') == "0") {
+  // include( plugin_dir_path( __FILE__ ) . 'includes/product_review_schema.php');
 }
 
 

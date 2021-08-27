@@ -63,6 +63,30 @@ if(isset( $_POST['product_review_submit_btn'] )) {
   echo "<script>window.location.reload();</script>";
 }
 
+/*
+*  Process Customer Reviews
+*/ 
+$local_schema_customer_review_name = get_option('local-schema-customer-review-name'); 
+$local_schema_customer_review_description = get_option('local-schema-customer-review-description'); 
+
+if(isset( $_POST['customer_review_submit_btn'] )) {
+  $options_array = array( 'local-schema-customer-review-name', 'local-schema-customer-review-description' );
+
+  function updateOptions($name) {
+    if(isset($_POST[$name])) {
+      $value = $_POST[$name];
+      update_option($name, $value);
+    }
+  }
+
+  //Update options
+  foreach($options_array as $value) {
+    updateOptions($value);
+  }
+
+  echo "<script>window.location.reload();</script>";
+}
+
 
 
 ?>

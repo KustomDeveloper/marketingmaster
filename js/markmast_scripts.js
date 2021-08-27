@@ -2,7 +2,7 @@
 jQuery(function () {
 
   /* 
-  * Function Rulez
+  * Function Rules
   * el must represent an element id
   * el must be a checkbox
   */
@@ -22,6 +22,10 @@ jQuery(function () {
   //Product Review Switch
   if(jQuery('#pr-switch').hasClass('checked')) {
     jQuery('.product-review').show();
+  }
+  //Customer Review Switch
+  if(jQuery('#cr-switch').hasClass('checked')) {
+    jQuery('.customer-review').show();
   }
 
   //Local Business Switch
@@ -65,6 +69,28 @@ jQuery(function () {
       }
       jQuery.post(ajaxurl, data, function(e) {});
       jQuery('.product-review').hide();
+    }
+  });    
+
+  //Customer Review Switch
+  jQuery('#cr-switch').on('click', function() {
+    getValue('cr-switch');
+
+    if(document.getElementById('cr-switch').checked) {
+      const data = {
+        "action" : "post_toggle_customer_review_action_on",
+        "toggle_value" : "0"
+      } 
+      jQuery.post(ajaxurl, data, function(e) {});
+      jQuery('.customer-review').show();
+    } else {
+
+      const data = {
+        "action" : "post_toggle_customer_review_action",
+        "toggle_value" : "1"
+      }
+      jQuery.post(ajaxurl, data, function(e) {});
+      jQuery('.customer-review').hide();
     }
   });    
 
