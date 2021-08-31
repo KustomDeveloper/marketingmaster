@@ -14,6 +14,7 @@
 *  Load Wp Ajax Functions: Toggle switch controllers
 *  
 */
+
 //Turns local schema to the "off" state
 function toggle_local_schema_action() {
   update_option("local_schema_settings", "1");
@@ -55,11 +56,13 @@ function toggle_customer_review_schema_action_on() {
 }
 add_action( 'wp_ajax_post_toggle_customer_review_action_on', 'toggle_customer_review_schema_action_on' );
 
+
 /*
 *
 *  Load Views
 *  
 */
+
 //Add local schema to frontend
 if(get_option('local_schema_settings') == "0") {
   include( plugin_dir_path( __FILE__ ) . 'includes/local_schema_json.php');
@@ -73,6 +76,15 @@ if(get_option('product_review_schema_settings') == "0") {
 //Add customer review to frontend
 if(get_option('customer_review_schema_settings') == "0") {
   include( plugin_dir_path( __FILE__ ) . 'includes/customer-review.php');
+}
+
+//Add frontend styles for customer reviews form
+add_action( 'wp_enqueue_scripts', 'markmast_front_styles' );
+function markmast_front_styles() {
+  wp_register_style( 'fontAwesome', plugins_url( 'marketingmaster/css/fontAwesome.css' ) );
+  wp_enqueue_style( 'fontAwesome' );
+  wp_register_style( 'markmast_frontend_stylesheet', plugins_url( 'marketingmaster/css/markmast_frontend_stylesheet.css' ) );
+  wp_enqueue_style( 'markmast_frontend_stylesheet' );
 }
 
 
@@ -115,13 +127,7 @@ if( get_option('markmast_activated') == 'true' ) {
       //Add settings page options
       include( plugin_dir_path( __FILE__ ) . 'includes/markmast_options_settings.php');
     }
-
-      //Add frontend styles for customer reviews form
-  add_action('wp_head', 'markmast_add_customer_review_styles');
-  function markmast_add_customer_review_styles() { ?>
-    <link rel="stylesheet" href="<?php plugin_dir_path( __FILE__ ); ?> css/markmast_view_styles.css">
-  <?php  
-  }
+  
   }
 
   //Add customer reviews menu

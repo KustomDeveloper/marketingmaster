@@ -4,6 +4,26 @@
 */
 
 /*
+*  Get list of reviews
+*/
+function local_schema_customer_reviews() {
+  $custom_query = new WP_Query(array( 
+    'post_type' => 'local-seo-reviews',
+  ));
+
+  while($custom_query->have_posts()) : $custom_query->the_post(); ?>
+
+    <div <?php post_class(); ?> id="post-<?php the_ID(); ?>">
+      <h1><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
+      <?php the_content(); ?>
+    </div>
+
+  <?php endwhile; 
+  wp_reset_postdata();
+}
+add_shortcode( 'local_schema_customer_reviews', 'local_schema_customer_reviews' );
+
+/*
 *  Create Frontend Form
 */
 function local_schema_customer_review_form() {
@@ -65,25 +85,4 @@ function local_schema_customer_review_form() {
 }
 add_shortcode( 'local_schema_customer_review_form', 'local_schema_customer_review_form' );
 
-
-/*
-*  Get list of reviews
-*/
-function local_schema_customer_reviews() {
-  
-  $custom_query = new WP_Query(array( 
-    'post_type' => 'local-seo-reviews',
-  ));
-
-  while($custom_query->have_posts()) : $custom_query->the_post(); ?>
-
-    <div <?php post_class(); ?> id="post-<?php the_ID(); ?>">
-      <h1><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
-      <?php the_content(); ?>
-    </div>
-
-  <?php endwhile; 
-  wp_reset_postdata();
-}
-add_shortcode( 'local_schema_customer_reviews', 'local_schema_customer_reviews' );
 

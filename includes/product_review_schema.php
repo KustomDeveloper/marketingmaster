@@ -1,13 +1,7 @@
 <?php
-function markmast_front_styles() {
-  wp_register_style( 'fontAwesome', plugins_url( 'marketingmaster/css/fontAwesome.css' ) );
-  wp_enqueue_style( 'fontAwesome' );
-  wp_register_style( 'markmast_frontend_stylesheet', plugins_url( 'marketingmaster/css/markmast_frontend_stylesheet.css' ) );
-  wp_enqueue_style( 'markmast_frontend_stylesheet' );
-}
-
-add_action( 'wp_enqueue_scripts', 'markmast_front_styles' );
-
+/*
+*  Product Review Shortcode 
+*/
 function markmast_product_review_shortcode( $atts ) {
   $site_url = get_bloginfo('url');
   $product_name = get_option('local-schema-product-name');

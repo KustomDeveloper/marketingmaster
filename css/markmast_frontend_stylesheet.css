@@ -22,3 +22,6 @@ span.cr-stars .fa-star, span.cr-stars .fa-star-half {
 .customer-review .fa-star {
   color: #E2A311;
 }
+input {
+  border-color: red !important;
+}
