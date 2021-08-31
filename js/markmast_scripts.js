@@ -17,15 +17,15 @@ jQuery(function () {
   //Show if enabled
   //Local Business Switch
   if(jQuery('#lb-switch').hasClass('checked')) {
-    jQuery('.local-business').show();
+    jQuery('.local-seo-business').show();
   }
   //Product Review Switch
   if(jQuery('#pr-switch').hasClass('checked')) {
-    jQuery('.product-review').show();
+    jQuery('.local-seo-product-review').show();
   }
   //Customer Review Switch
   if(jQuery('#cr-switch').hasClass('checked')) {
-    jQuery('.customer-review').show();
+    jQuery('.local-seo-customer-review').show();
   }
 
   //Local Business Switch
@@ -38,7 +38,7 @@ jQuery(function () {
         "toggle_value" : "0"
       } 
       jQuery.post(ajaxurl, data, function(e) {});
-      jQuery('.local-business').show();
+      jQuery('.local-seo-business').show();
     } else {
 
       const data = {
@@ -46,7 +46,7 @@ jQuery(function () {
         "toggle_value" : "1"
       }
       jQuery.post(ajaxurl, data, function(e) {});
-      jQuery('.local-business').hide();
+      jQuery('.local-seo-business').hide();
     }
   });  
 
@@ -60,7 +60,7 @@ jQuery(function () {
         "toggle_value" : "0"
       } 
       jQuery.post(ajaxurl, data, function(e) {});
-      jQuery('.product-review').show();
+      jQuery('.local-seo-product-review').show();
     } else {
 
       const data = {
@@ -68,7 +68,7 @@ jQuery(function () {
         "toggle_value" : "1"
       }
       jQuery.post(ajaxurl, data, function(e) {});
-      jQuery('.product-review').hide();
+      jQuery('.local-seo-product-review').hide();
     }
   });    
 
@@ -82,7 +82,7 @@ jQuery(function () {
         "toggle_value" : "0"
       } 
       jQuery.post(ajaxurl, data, function(e) {});
-      jQuery('.customer-review').show();
+      jQuery('.local-seo-customer-review').show();
     } else {
 
       const data = {
@@ -90,7 +90,7 @@ jQuery(function () {
         "toggle_value" : "1"
       }
       jQuery.post(ajaxurl, data, function(e) {});
-      jQuery('.customer-review').hide();
+      jQuery('.local-seo-customer-review').hide();
     }
   });    
 

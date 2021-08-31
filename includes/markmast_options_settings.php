@@ -2,7 +2,7 @@
 
 <div id="markmast-main-options">
 
-  <h1>Marketing Master Settings</h1>
+  <h1>General Settings</h1>
 
     <form method='POST'>
       
@@ -16,7 +16,7 @@
         </label>
       </div>
       
-      <div class="local-business hide-elements">
+      <div class="local-seo-business hide-elements">
         <label for="Business Name" class="b-label">Business Name*
           <input class="input-block" type="text" name="local-business-name" value="<?php echo $local_schema_name; ?>" required>
         </label>
@@ -108,7 +108,7 @@
     </label>
   </div>
 
-  <div class="product-review hide-elements">
+  <div class="local-seo-product-review hide-elements">
   <form method='POST'>
         <label for="Product Review Name" class="b-label">Product Review Name
           <input class="input-block" type="text" name="local-schema-product-name" value="<?php echo $local_schema_product_name; ?>">
@@ -130,25 +130,24 @@
 </div>
 
 
-<div class="customer-review hide-elements">
+<div class="local-seo-customer-review hide-elements">
   <form method='POST'>
-        <input type="radio" id="oneS" name="reviewStars" value="1">
-        <label for="onestar">1</label><br>
-        <input type="radio" id="twoS" name="reviewStars" value="2">
-        <label for="twostar">2</label><br>
-        <input type="radio" id="threeS" name="reviewStars" value="3">
-        <label for="threestar">3</label><br>
-        <input type="radio" id="fourS" name="reviewStars" value="4">
-        <label for="fourstar">4</label><br>
-        <input type="radio" id="fiveS" name="reviewStars" value="5">
-        <label for="fivestar">5</label><br>
-        
-        <label for="Customer Review Name" class="b-label">Customer Review Name*
-          <input class="input-block" type="text" name="local-schema-customer-review-name" value="<?php echo $local_schema_product_name; ?>">
+        <label for="How Many Reviews To Show Per Page" class="b-label">How Many Reviews To Show Per Page?*
+          <select class="input-block" name="local-schema-customer-review-how-many-to-show" id="local-schema-customer-review-how-many-to-show">
+            <option value="1">1</option>
+            <option value="5" selected="selected">5</option>
+            <option value="10">10</option>
+            <option value="15">15</option>
+            <option value="20">20</option>
+          </select>
         </label>  
-        <label for="Product Review Description" class="b-label">Customer Review Description*
-          <textarea class="input-block" name="local-schema-customer-review-description" rows="5" ><?php echo $local_schema_product_description; ?></textarea>
+        <label for="Add Pagination" class="b-label">Show Pagination?*
+          <select class="input-block" name="local-schema-customer-review-pagination" id="local-schema-customer-review-pagination">
+            <option value="yes" selected="selected">yes</option>
+            <option value="no">no</option>
+          </select>
         </label>  
+
         <input id="product_review_submit_btn" type="submit" name="customer_review_submit_btn" value="Save Review Settings">
     </form>
   </div>

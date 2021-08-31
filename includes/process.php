@@ -66,11 +66,11 @@ if(isset( $_POST['product_review_submit_btn'] )) {
 /*
 *  Process Customer Reviews
 */ 
-$local_schema_customer_review_name = get_option('local-schema-customer-review-name'); 
-$local_schema_customer_review_description = get_option('local-schema-customer-review-description'); 
+$local_schema_customer_review_limit = get_option("local-schema-customer-review-how-many-to-show");
+$local_schema_customer_review_pagination = get_option("local-schema-customer-review-pagination");
 
 if(isset( $_POST['customer_review_submit_btn'] )) {
-  $options_array = array( 'local-schema-customer-review-name', 'local-schema-customer-review-description' );
+  $options_array = array( 'local-schema-customer-review-how-many-to-show', 'local-schema-customer-review-pagination' );
 
   function updateOptions($name) {
     if(isset($_POST[$name])) {

@@ -70,16 +70,17 @@ if(get_option('product_review_schema_settings') == "0") {
   include( plugin_dir_path( __FILE__ ) . 'includes/product_review_schema.php');
 }
 
-//Add Customer review to frontend
+//Add customer review to frontend
 if(get_option('customer_review_schema_settings') == "0") {
-  // include( plugin_dir_path( __FILE__ ) . 'includes/product_review_schema.php');
+  include( plugin_dir_path( __FILE__ ) . 'includes/customer-review.php');
 }
 
 
 /*
 *  Activate plugin
-*    create admin menu
-*    create options page
+*    Create admin menu
+*    Create options page
+*    Create customer reviews menu
 */
 register_activation_hook( __FILE__, 'markmast_activate' );
 function markmast_activate() {
@@ -114,9 +115,22 @@ if( get_option('markmast_activated') == 'true' ) {
     }
   }
 
+  //Add customer reviews menu
+  if(get_option('customer_review_schema_settings') == "0") {
+    add_action('init', 'create_local_seo_customer_reviews_post_type');
+    function create_local_seo_customer_reviews_post_type() {
+      $args = array(
+        'public' => true,
+        'label'  => __( 'Customer Reviews' ),
+      );
+      
+      register_post_type( 'local-seo-reviews', $args);
+    }
+  }
 
 } else {
   remove_menu_page( 'markmast_options' );
+  unregister_post_type( 'local-seo-customer-reviews');
 }
 
 
