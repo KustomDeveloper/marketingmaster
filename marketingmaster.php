@@ -97,14 +97,16 @@ if( get_option('markmast_activated') == 'true' ) {
     $capability = 'manage_options';
     $menu_slug = 'markmast_options';
     $function = 'markmast_options_settings';
-    $icon_url = '';
+    $icon_url = 'dashicons-admin-tools';
     $position = 50;
 
     add_menu_page( $page_title, $menu_title, $capability, $menu_slug, $function, $icon_url, $position );
-
+    
+    //Add styles
     wp_register_style( 'markmast_admin_styles', plugins_url('css/markmast_admin_styles.css', __FILE__) );
     wp_enqueue_style('markmast_admin_styles');
-
+    
+    //Add scripts
     wp_register_script( 'markmast_scripts', plugins_url('js/markmast_scripts.js', __FILE__) , '', '', true );
     wp_enqueue_script( 'markmast_scripts' );
 
@@ -113,6 +115,13 @@ if( get_option('markmast_activated') == 'true' ) {
       //Add settings page options
       include( plugin_dir_path( __FILE__ ) . 'includes/markmast_options_settings.php');
     }
+
+      //Add frontend styles for customer reviews form
+  add_action('wp_head', 'markmast_add_customer_review_styles');
+  function markmast_add_customer_review_styles() { ?>
+    <link rel="stylesheet" href="<?php plugin_dir_path( __FILE__ ); ?> css/markmast_view_styles.css">
+  <?php  
+  }
   }
 
   //Add customer reviews menu
@@ -122,9 +131,32 @@ if( get_option('markmast_activated') == 'true' ) {
       $args = array(
         'public' => true,
         'label'  => __( 'Customer Reviews' ),
+        'menu_icon' => 'dashicons-admin-comments',
       );
       
       register_post_type( 'local-seo-reviews', $args);
+    }
+
+    //Create Customer Reviews Page
+    add_action('init', 'create_review_page');
+    function create_review_page() {
+      $customer_reviews_page = array(
+        'post_title'    => 'Customer Reviews',
+        'post_content'  => '<!-- wp:shortcode -->[local_schema_customer_review_form]<!-- /wp:shortcode --><!-- wp:shortcode -->[local_schema_customer_reviews]<!-- /wp:shortcode -->',
+        'post_status'   => 'draft',
+        'post_author'   => 1,
+        'post_type' => 'page'
+      );
+
+      $page = get_page_by_title('Customer Reviews');
+
+      //Testing
+      ?><pre><?php //print_r($page); ?></pre><?php
+
+      //Create page if it doesn't exist
+      if( get_page_by_title('Customer Reviews') === null ) {
+        wp_insert_post( $customer_reviews_page ); 
+      }  
     }
   }
 
@@ -132,7 +164,6 @@ if( get_option('markmast_activated') == 'true' ) {
   remove_menu_page( 'markmast_options' );
   unregister_post_type( 'local-seo-customer-reviews');
 }
-
 
 /*
 *  Deactivate plugin

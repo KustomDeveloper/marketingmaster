@@ -151,22 +151,3 @@
         <input id="product_review_submit_btn" type="submit" name="customer_review_submit_btn" value="Save Review Settings">
     </form>
   </div>
-
-
-
-
-<!-- add page programmatically
-$wordpress_page = array(
-  'post_title'    => 'Page title',
-  'post_content'  => 'Page Content',
-  'post_status'   => 'publish',
-  'post_author'   => 1,
-  'post_type' => 'page'
-   );
- wp_insert_post( $wordpress_page ); -->
-
-
-
- 
-
-
