@@ -129,22 +129,22 @@
   </div>
 </div>
 
-
 <div class="local-seo-customer-review hide-elements">
   <form method='POST'>
         <label for="How Many Reviews To Show Per Page" class="b-label">How Many Reviews To Show Per Page?*
           <select class="input-block" name="local-schema-customer-review-how-many-to-show" id="local-schema-customer-review-how-many-to-show">
-            <option value="1">1</option>
-            <option value="5" selected="selected">5</option>
-            <option value="10">10</option>
-            <option value="15">15</option>
-            <option value="20">20</option>
+            <option value='1'<?php echo $selected = ($local_schema_customer_review_limit == "1") ? " selected" : ""; ?>>1</option>
+            <option value='5'<?php echo $selected = ($local_schema_customer_review_limit == "5") ? " selected" : ""; ?>>5</option>
+            <option value='10'<?php echo $selected = ($local_schema_customer_review_limit == "10") ? " selected" : ""; ?>>10</option>
+            <option value='15'<?php echo $selected = ($local_schema_customer_review_limit == "15") ? " selected" : ""; ?>>15</option>
+            <option value='20'<?php echo $selected = ($local_schema_customer_review_limit == "20") ? " selected" : ""; ?>>20</option>
           </select>
         </label>  
+
         <label for="Add Pagination" class="b-label">Show Pagination?*
           <select class="input-block" name="local-schema-customer-review-pagination" id="local-schema-customer-review-pagination">
-            <option value="yes" selected="selected">yes</option>
-            <option value="no">no</option>
+            <option value="yes" <?php echo $selected = ($local_schema_customer_review_pagination == "yes") ? " selected" : ""; ?>>Yes</option>
+            <option value="no" <?php echo $selected = ($local_schema_customer_review_pagination == "no") ? " selected" : ""; ?>>No</option>
           </select>
         </label>  
 

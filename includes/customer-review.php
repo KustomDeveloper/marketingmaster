@@ -77,12 +77,25 @@ function local_schema_customer_review_form() {
       $name = markmast_clean_input($_POST['local-schema-customer-review-name']);
       $description = markmast_clean_input($_POST['local-schema-customer-review-description']);
 
-      echo $stars . '<br>'; 
-      echo $email . '<br>'; 
-      echo $name  . '<br>'; 
-      echo $description  . '<br>'; 
+      // echo $stars . '<br>'; 
+      // echo $email . '<br>'; 
+      // echo $name  . '<br>'; 
+      // echo $description  . '<br>'; 
+      
+      if( !empty($email) && !empty($name) && !empty($description) ) {
+        $customer_review = array(
+          'post_title' => $name,
+          'post_content' => $description,
+          'post_status' => 'draft',
+          'post_author'   => 1,
+          'post_type' => 'local-seo-reviews'
+        );
+        
+        //Create review
+        wp_insert_post( $customer_review ); 
+      }
+
+
     }
 }
 add_shortcode( 'local_schema_customer_review_form', 'local_schema_customer_review_form' );
-
-
