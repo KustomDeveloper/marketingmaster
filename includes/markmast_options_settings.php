@@ -149,11 +149,11 @@
         </label>  
 
         <label for="Site Key" class="b-label keys <?php echo $show_site_pk = ($local_schema_customer_review_captcha == 'yes') ? '' : 'hidden-element'; ?>">Site Key*
-          <input class="input-block" name="local-schema-customer-review-site-key" id="local-schema-customer-review-site-key" value="" />
+          <input class="input-block" name="local-schema-customer-review-site-key" id="local-schema-customer-review-site-key" value="<?php echo $local_schema_customer_review_site_key; ?>" />
         </label>  
 
         <label for="Secret Key" class="b-label keys <?php echo $show_site_sk = ($local_schema_customer_review_captcha == 'yes') ? '' : 'hidden-element'; ?>">Secret Key*
-          <input class="input-block" name="local-schema-customer-review-secret-key" id="local-schema-customer-review-secret-key" value="" />
+          <input class="input-block" name="local-schema-customer-review-secret-key" id="local-schema-customer-review-secret-key" value="<?php echo $local_schema_customer_review_secret_key; ?>" />
         </label>  
 
         <label for="Add Pagination" class="b-label">Show Pagination?*
