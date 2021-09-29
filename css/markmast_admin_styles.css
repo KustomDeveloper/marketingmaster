@@ -9,6 +9,7 @@
 #markmast-main-options .switchbox h3 {
   padding-top: 20px;
   display:block;
+  margin-bottom: 15px;
 }
 .input-block {
   width: 100%;
@@ -93,6 +94,7 @@ label {
   cursor: pointer;
   margin: 15px 0;
   display: block;
+  max-width: 300px;
 }
 #submit-btn {
   background: #2196F3;

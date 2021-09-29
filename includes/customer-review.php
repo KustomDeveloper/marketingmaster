@@ -27,45 +27,48 @@ add_shortcode( 'local_schema_customer_reviews', 'local_schema_customer_reviews' 
 *  Create Frontend Form
 */
 function local_schema_customer_review_form() {
-  echo '
-    <form method="POST">
-      <div class="mb-3">
-        <input type="radio" id="oneS" name="reviewStars" value="1">
-        <label for="onestar"><i class="fa fa-star"></i></label>
-        <input type="radio" id="twoS" name="reviewStars" value="2">
-        <label for="twostar"><i class="fa fa-star"></i><i class="fa fa-star"></i></label>
-        <input type="radio" id="threeS" name="reviewStars" value="3">
-        <label for="threestar"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></label>
-        <input type="radio" id="fourS" name="reviewStars" value="4">
-        <label for="fourstar"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></label>
-        <input type="radio" id="fiveS" name="reviewStars" value="5">
-        <label for="fivestar"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></label>
+  $site_key = get_option("local-schema-customer-review-site-key");
+  $secret_key = get_option("local-schema-customer-review-secret-key");
+
+  echo "
+    <form method='POST'>
+      <div class='mb-3'>
+        <input type='radio' id='oneS' name='reviewStars' value='1'>
+        <label for='onestar'><i class='fa fa-star'></i></label>
+        <input type='radio' id='twoS' name='reviewStars' value='2'>
+        <label for='twostar'><i class='fa fa-star'></i><i class='fa fa-star'></i></label>
+        <input type='radio' id='threeS' name='reviewStars' value='3'>
+        <label for='threestar'><i class='fa fa-star'></i><i class='fa fa-star'></i><i class='fa fa-star'></i></label>
+        <input type='radio' id='fourS' name='reviewStars' value='4'>
+        <label for='fourstar'><i class='fa fa-star'></i><i class='fa fa-star'></i><i class='fa fa-star'></i><i class='fa fa-star'></i></label>
+        <input type='radio' id='fiveS' name='reviewStars' value='5'>
+        <label for='fivestar'><i class='fa fa-star'></i><i class='fa fa-star'></i><i class='fa fa-star'></i><i class='fa fa-star'></i><i class='fa fa-star'></i></label>
       </div>
 
-      <div class="mb-3">
-        <label for="Customer Review Name" class="b-label col-form-label">Customer Review Name*</label>  
-        <input class="form-control input-block" type="text" name="local-schema-customer-review-name" value="">
+      <div class='mb-3'>
+        <label for='Customer Review Name' class='b-label col-form-label'>Customer Review Name*</label>  
+        <input class='form-control input-block' type='text' name='local-schema-customer-review-name' value=''>
       </div>
 
-      <div class="mb-3">
-        <label for="Customer Review Email" class="b-label col-form-label">Email*</label>  
-        <input class="form-control input-block" type="text" name="local-schema-customer-review-email" value="">
+      <div class='mb-3'>
+        <label for='Customer Review Email' class='b-label col-form-label'>Email*</label>  
+        <input class='form-control input-block' type='text' name='local-schema-customer-review-email' value=''>
       </div>
 
-      <div class="mb-3">
-        <label for="Product Review Description" class="b-label col-form-label">Customer Review Description*</label>  
-        <textarea class="form-control input-block" name="local-schema-customer-review-description" rows="5" ></textarea>
+      <div class='mb-3'>
+        <label for='Product Review Description' class='b-label col-form-label'>Customer Review Description*</label>  
+        <textarea class='form-control input-block' name='local-schema-customer-review-description' rows='5'></textarea>
       </div>
 
-      <div class="mb-3">
-        <div class="g-recaptcha" data-sitekey="${site_key}"></div>
+      <div class='mb-3'>
+        <div class='g-recaptcha' data-sitekey='${site_key}'></div>
       </div>
 
-      <div class="mb-3">
-        <input id="local_schema_customer_review_submit" type="submit" name="local_schema_customer_review_submit" value="Submit">
+      <div class='mb-3'>
+        <input id='local_schema_customer_review_submit' type='submit' name='local_schema_customer_review_submit' value='Submit'>
       </div>
 
-    </form>';
+    </form>";
 
     if(isset($_POST['local_schema_customer_review_submit'])) {
       $stars = $email = $name = $description = "";
@@ -74,6 +77,14 @@ function local_schema_customer_review_form() {
         $data = stripslashes($data);
         $data = htmlspecialchars($data);
         return $data;
+      }
+
+      if( isset($_POST['g-recaptcha-response']) ) {
+        $captcha = $_POST['g-recaptcha-response'];
+      }
+
+      if(!$captcha){
+        
       }
 
       $stars = $_POST['reviewStars'];
@@ -86,7 +97,7 @@ function local_schema_customer_review_form() {
       // echo $name  . '<br>'; 
       // echo $description  . '<br>'; 
       
-      if( !empty($email) && !empty($name) && !empty($description) ) {
+      if( !empty($email) && !empty($name) && !empty($description)  ) {
         $customer_review = array(
           'post_title' => $name,
           'post_content' => $description,
