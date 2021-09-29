@@ -141,6 +141,21 @@
           </select>
         </label>  
 
+        <label for="Add captcha to review form?" class="b-label">Add captcha to review form?*
+          <select class="input-block" name="local-schema-customer-review-captcha" id="local-schema-customer-review-captcha">
+            <option value='no'<?php echo $selected = ($local_schema_customer_review_captcha == "no") ? " selected" : ""; ?>>No</option>
+            <option value='yes'<?php echo $selected = ($local_schema_customer_review_captcha == "yes") ? " selected" : ""; ?>>Yes</option>
+          </select>
+        </label>  
+
+        <label for="Site Key" class="b-label keys <?php echo $show_site_pk = ($local_schema_customer_review_captcha == 'yes') ? '' : 'hidden-element'; ?>">Site Key*
+          <input class="input-block" name="local-schema-customer-review-site-key" id="local-schema-customer-review-site-key" value="" />
+        </label>  
+
+        <label for="Secret Key" class="b-label keys <?php echo $show_site_sk = ($local_schema_customer_review_captcha == 'yes') ? '' : 'hidden-element'; ?>">Secret Key*
+          <input class="input-block" name="local-schema-customer-review-secret-key" id="local-schema-customer-review-secret-key" value="" />
+        </label>  
+
         <label for="Add Pagination" class="b-label">Show Pagination?*
           <select class="input-block" name="local-schema-customer-review-pagination" id="local-schema-customer-review-pagination">
             <option value="yes" <?php echo $selected = ($local_schema_customer_review_pagination == "yes") ? " selected" : ""; ?>>Yes</option>

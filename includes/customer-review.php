@@ -58,6 +58,10 @@ function local_schema_customer_review_form() {
       </div>
 
       <div class="mb-3">
+        <div class="g-recaptcha" data-sitekey="${site_key}"></div>
+      </div>
+
+      <div class="mb-3">
         <input id="local_schema_customer_review_submit" type="submit" name="local_schema_customer_review_submit" value="Submit">
       </div>
 

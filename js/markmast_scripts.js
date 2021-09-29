@@ -94,6 +94,33 @@ jQuery(function () {
     }
   });    
 
+  //Captcha 
+  jQuery('#local-schema-customer-review-captcha').on('change', function() {
+    let val = jQuery('#local-schema-customer-review-captcha').val();
+    console.log(val);
+
+    if(val == 'yes') {
+      console.log('it equals yes');
+
+      jQuery('.keys').each(function() {
+        jQuery(this).removeClass('hidden-element');
+      })
+    }
+
+    if(val == 'no') {
+      console.log('it equals yes');
+
+      jQuery('.keys').each(function() {
+        jQuery(this).addClass('hidden-element');
+      })
+    } else {
+      // Do Nothing.
+    }
+  });
+  
+
+  // hidden-element
+
               
 });
 

@@ -26,4 +26,7 @@ $local_schema_product_description = get_option('local-schema-product-description
 //Option 3
 $local_schema_customer_review_limit = get_option("local-schema-customer-review-how-many-to-show");
 $local_schema_customer_review_pagination = get_option("local-schema-customer-review-pagination");
+$local_schema_customer_review_captcha = get_option("local-schema-customer-review-captcha");
+$local_schema_customer_review_site_key = get_option("local-schema-customer-review-site-key");
+$local_schema_customer_review_secret_key = get_option("local-schema-customer-review-secret-key");
 ?>

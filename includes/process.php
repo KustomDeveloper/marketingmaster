@@ -41,7 +41,8 @@ if(isset( $_POST['product_review_submit_btn'] )) {
 *  Process Customer Reviews
 */ 
 if(isset( $_POST['customer_review_submit_btn'] )) {
-  $options_array = array( 'local-schema-customer-review-how-many-to-show', 'local-schema-customer-review-pagination' );
+  $options_array = array( 'local-schema-customer-review-how-many-to-show', 
+  'local-schema-customer-review-captcha', 'local-schema-customer-review-site-key', 'local-schema-customer-review-secret-key', 'local-schema-customer-review-pagination' );
 
   function updateOptions($name) {
     if(isset($_POST[$name])) {

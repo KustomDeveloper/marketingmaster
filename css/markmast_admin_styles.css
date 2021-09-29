@@ -111,3 +111,21 @@ form .checked {
   font-size: 18px;
   margin-top: 15px;
 }
+select {
+  height: 34px;
+  max-width: 300px !important;
+  width: 100%;
+  display: block;
+  border: 1px solid #8c8f94 !important;
+}
+.keys {
+  margin-left: 5px;
+  display: block;
+}
+.hidden-element {
+  display: none;
+}
+.keys input {
+  height: 28px;
+  max-width: 240px;
+}
