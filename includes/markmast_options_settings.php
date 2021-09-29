@@ -138,6 +138,7 @@
             <option value='10'<?php echo $selected = ($local_schema_customer_review_limit == "10") ? " selected" : ""; ?>>10</option>
             <option value='15'<?php echo $selected = ($local_schema_customer_review_limit == "15") ? " selected" : ""; ?>>15</option>
             <option value='20'<?php echo $selected = ($local_schema_customer_review_limit == "20") ? " selected" : ""; ?>>20</option>
+            <option value='all'<?php echo $selected = ($local_schema_customer_review_limit == "all") ? " selected" : ""; ?>>All</option>
           </select>
         </label>  
 
