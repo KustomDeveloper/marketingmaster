@@ -2,7 +2,7 @@
 <?php include('options-variables.php'); ?>
 
 <div id="markmast-main-options">
-  <h1>General Settings</h1>
+  <h1>Local SEO Settings</h1>
 
     <form method='POST'>
       
